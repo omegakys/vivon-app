@@ -4,6 +4,7 @@ import SidebarItem from './SidebarItem';
 import FriendRequestItem from './FriendRequestItem';
 import avatarPlaceholder from "../assets/avatars/Portrait_Placeholder.png"
 import { API_BASE_URL } from '../config/api.ts';
+import groupAvatar from "../assets/avatars/Group.png";
 
 interface Group {
   conversation_id: number;
@@ -263,7 +264,7 @@ export default function SidebarItems({ onChatSelect, onTabChange, activeTab }: S
                 <SidebarItem
                   type='group'
                   key={group.conversation_id}
-                  avatar={avatarPlaceholder}
+                  avatar={groupAvatar}
                   name={group.conversation_name}
                   userId={group.conversation_id.toString()}
                   onChatSelect={handleGroupSelect}
@@ -283,7 +284,7 @@ export default function SidebarItems({ onChatSelect, onTabChange, activeTab }: S
               filteredRequests.map(request => (
                 <FriendRequestItem
                   key={request.id}
-                  avatar={request.avatar}
+                  avatar={request.avatar ?? avatarPlaceholder}
                   name={request.userName}
                   userId={request.id}
                   onAccept={handleAcceptRequest}
