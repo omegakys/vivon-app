@@ -3,6 +3,8 @@ import TextChatItem from "../UiLib/TextChatItem";
 import temp1 from "../assets/avatars/Portrait_Placeholder.png";
 import { useWebSocket, type Message } from "../useWebSocket";
 import AddUserToGroupModal from "./AddUserToGroupModal";
+import { IconButton } from "../UiLib/IconButton";
+import { PhoneCallIcon} from "@phosphor-icons/react";
 
 interface TextChatProps {
   conversationId: number | null;
@@ -179,9 +181,19 @@ useEffect(() => {
             )}
           </div>
           <h2 className="text-lg font-semibold">{chatName}</h2>
-          <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-green-500' : 'bg-red-500'}`} 
+          <div className="flex items-center gap-3">
+            <IconButton
+            icon={PhoneCallIcon}
+            variant="default"
+            size="md"
+            className="text-stone-400 hover:text-white hover:bg-stone-700"
+          />
+        <div
+          className={`w-3 h-3 rounded-full ${isConnected ? 'bg-green-500' : 'bg-red-500'}`} 
                title={isConnected ? 'Connected' : 'Disconnected'} />
         </div>
+          </div>
+
         
         <div 
           ref={messagesContainerRef}

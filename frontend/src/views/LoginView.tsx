@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../config/api.ts';
 
 export default function Login() {
+
+  console.log("MODE:", import.meta.env.MODE);
+console.log("API:", import.meta.env.VITE_API_BASE_URL);
+console.log(import.meta.env);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
